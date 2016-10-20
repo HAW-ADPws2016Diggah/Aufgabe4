@@ -22,6 +22,18 @@ public class Main {
 		Comparable[] a_select;
 		Comparable[] a_bubble;
 		
+		int mergeTemp=0;
+		int mergeMin=0;
+		int mergeMax=0;
+		int insertMin=0;
+		int insertTemp=0;
+		int insertMax=0;
+		int selectMin=0;
+		int selectTemp=0;
+		int selectMax=0;
+		int bubbleMin=0;
+		int bubbleTemp=0;
+		int bubbleMax=0;
 		for (int i = 0; i < n; i++) {
 			
 			a = randomizeArray(a);
@@ -36,12 +48,48 @@ public class Main {
 			selectTime += doSelection(a_select);
 			bubbleTime += doBubble(a_bubble);	
 			
+			//initialiesierung f�r leere variablen
+			if(mergeMin == 0){mergeMin=mergeTemp/a_size;}
+			if(mergeMax == 0){mergeMax=mergeTemp/a_size;}
+			
+			
+			if(insertMin == 0){insertMin=insertTemp/a_size;}
+			
+			if(insertMax == 0){insertMax=insertTemp/a_size;}
+			
+			if(selectMin == 0){selectMin=selectTemp/a_size;}
+			
+			if(selectMax == 0){selectMax=selectTemp/a_size;}
+			
+			if(bubbleMin == 0){bubbleMin=bubbleTemp/a_size;}
+			
+			if(bubbleMax == 0){bubbleMax=bubbleTemp/a_size;}
+			
+			
+			if(mergeMin > (mergeTemp/a_size)){mergeMin = mergeTemp/a_size; }
+			if(mergeMax < (mergeTemp/a_size)){mergeMax = mergeTemp/a_size;}
+			if(insertMin < (insertTemp/a_size)){insertMin = insertTemp/a_size;}
+			if(insertMax > (insertTemp/a_size)){insertMax = insertTemp/a_size;}
+			if(selectMin < (selectTemp/a_size)){selectMin = selectTemp/a_size;}
+			if(selectMax > (selectTemp/a_size)){selectMax = selectTemp/a_size;}
+			if(bubbleMin < (bubbleTemp/a_size)){bubbleMin = bubbleTemp/a_size;}
+			if(bubbleMax > (bubbleTemp/a_size)){bubbleMax = bubbleTemp/a_size;}
+			
+			
+			
 		}
 		
+		System.out.println("Merge Zeit: " + mergeTime/n/1000/1000 + " ms\n");
+		System.out.println("Merge min: "+mergeMin/1000+"mueckkcro Sekunden,  Max: "+mergeMax/1000+"muekkckckcrosekunden");
+		System.out.println("Insert Zeit: " + insertTime/n/1000/1000 + " ms\n");
+		System.out.println("Select Zeit: " + selectTime/n/1000/1000 + " ms\n");
+		System.out.println("Bubble Zeit: " + bubbleTime/n/1000/1000 + " ms\n");
+		
+		/*
 		System.out.println("Merge Zeit: " + mergeTime/n/1000 + " µs\n\n");
 		System.out.println("Insert Zeit: " + insertTime/n/1000 + " µs\n\n");
 		System.out.println("Select Zeit: " + selectTime/n/1000 + " µs\n\n");
-		System.out.println("Bubble Zeit: " + bubbleTime/n/1000 + " µs\n\n");
+		System.out.println("Bubble Zeit: " + bubbleTime/n/1000 + " µs\n\n");*/
 		
 	}
 		
